@@ -49,6 +49,11 @@ const ImagePickerExample = ({ onChange }: PropsImagePicker) => {
     }
   };
 
+  const onClearImg = () => {
+    setImage(null);
+    onChange(null);
+  };
+
   return (
     <View>
       <Button title={TitleButton.ADD_PHOTO} onPress={pickImage} color={ColorScheme.CYAN_BLUE}/>
@@ -57,7 +62,7 @@ const ImagePickerExample = ({ onChange }: PropsImagePicker) => {
           <Text style={styles.name}>
             {formatNamePhoto(image)}
           </Text>
-          <Pressable style={styles.icon}>
+          <Pressable style={styles.icon} onPress={onClearImg}>
             <Image source={require("../assets/images/icon-close.png")} />
           </Pressable>
         </View>
